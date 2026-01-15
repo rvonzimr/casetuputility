@@ -38,7 +38,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildPhase = ''
     runHook preBuildPhase
-    # Compile our shared library. The output file will be in the current directory.
+    # Patch out the hardcoded config paths....
     ${pkgs.gcc}/bin/gcc -fPIC -shared chdir_wrapper.c -o ./chdir_wrapper.so -ldl
   '';
 
